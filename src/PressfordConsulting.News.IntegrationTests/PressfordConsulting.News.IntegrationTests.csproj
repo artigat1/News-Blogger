@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CF7A7DE2-3BDD-43D3-99D4-1143DB03764B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PressfordConsulting.News.IntegrationTests</RootNamespace>
+    <AssemblyName>PressfordConsulting.News.IntegrationTests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Machine.Specifications, Version=0.9.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Machine.Specifications.0.9.3\lib\net45\Machine.Specifications.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Machine.Specifications.Clr4, Version=0.9.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Machine.Specifications.0.9.3\lib\net45\Machine.Specifications.Clr4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Machine.Specifications.Should, Version=0.7.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Machine.Specifications.Should.0.7.2\lib\net45\Machine.Specifications.Should.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebDriver, Version=2.47.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.2.47.0\lib\net40\WebDriver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=2.47.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.2.47.0\lib\net40\WebDriver.Support.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PublisherUser\HomepageSpec.cs" />
+    <Compile Include="PublisherUser\PublisherUserContext.cs" />
+    <Compile Include="PublisherUser\NewArticlePageSpec.cs" />
+    <Compile Include="PublisherUser\EditArticlePageSpec.cs" />
+    <Compile Include="PublisherUser\NewsPageSpec.cs" />
+    <Compile Include="PublisherUser\ReadArticlePageSpec.cs" />
+    <Compile Include="Browser.cs" />
+    <Compile Include="EmployeeUser\HomepageSpec.cs" />
+    <Compile Include="EmployeeUser\NewArticlePageSpec.cs" />
+    <Compile Include="EmployeeUser\EditArticlePageSpec.cs" />
+    <Compile Include="EmployeeUser\EmployeeUserContext.cs" />
+    <Compile Include="EmployeeUser\NewsPageSpec.cs" />
+    <Compile Include="EmployeeUser\ReadArticlePageSpec.cs" />
+    <Compile Include="GuestUser\NewArticlePageSpec.cs" />
+    <Compile Include="GuestUser\EditArticlePageSpec.cs" />
+    <Compile Include="GuestUser\GuestUserContext.cs" />
+    <Compile Include="GuestUser\LoginPageSpec.cs" />
+    <Compile Include="GuestUser\ReadArticlePageSpec.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="Page.cs" />
+    <Compile Include="PageObject.cs" />
+    <Compile Include="PageObjects\EditArticlePage.cs" />
+    <Compile Include="PageObjects\Homepage.cs" />
+    <Compile Include="PageObjects\LoginPage.cs" />
+    <Compile Include="PageObjects\NewArticlePage.cs" />
+    <Compile Include="PageObjects\NewsPage.cs" />
+    <Compile Include="PageObjects\Pages.cs" />
+    <Compile Include="PageObjects\ReadArticlePage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\packages\PhantomJS.2.0.0\tools\phantomjs\phantomjs.exe">
+      <Link>phantomjs.exe</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

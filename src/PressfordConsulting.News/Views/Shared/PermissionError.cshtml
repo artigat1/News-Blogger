@@ -1,0 +1,14 @@
+﻿@model HandleErrorInfo
+
+@{
+    ViewBag.Title = "Permissions Error";
+}
+
+<h1 class="header center red-text text-lighten-2">Permissions Error!</h1>
+<div class="row center">
+    <p>You do not have access to this page!</p>
+    <p><a href="@Url.Action("Contact", "Home")">Contact us</a> if you think you should be able to see this page.</p>
+    <p>Return to the <a href="@Url.Action("Index", "Home")">homepage.</a></p>
+</div>
+
+

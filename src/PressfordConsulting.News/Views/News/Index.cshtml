@@ -1,0 +1,26 @@
+﻿@model PressfordConsulting.News.Models.NewsViewModel
+@{
+    ViewBag.Title = "News | Pressford Consulting";
+}
+
+@if (User.IsInRole("Publisher"))
+{
+    <div class="fixed-action-btn">
+        <a class="btn btn-floating btn-large red tooltipped" href="@Url.Action("New", "Article")" id="btnAddArticle" data-position="left" data-delay="50" data-tooltip="Add new article">
+            <i class="large material-icons">add</i>
+        </a>
+    </div>
+}
+
+<div>
+    <h2 class="header center teal-text text-lighten-2">News</h2>
+
+    @if (Model.LatestArticles != null)
+    {
+        Html.Partial("NewsStoryList", Model.LatestArticles);
+    }
+</div>
+
+@section Scripts{
+    <script src="~/Content/dist/js/site-bundle.min.js" type="text/javascript"></script>
+}

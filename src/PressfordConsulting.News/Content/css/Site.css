@@ -1,0 +1,44 @@
+﻿/*
+    To get the sticky footer
+*/
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+/* 
+    Header 
+*/
+.brand-logo img {
+    height: 50px;
+    width: auto;
+    margin-top: 0.15rem;
+}
+
+/* 
+    article Read page 
+*/
+div.fixed-action-btn {
+    bottom: 45px;
+    right: 24px;
+}
+
+div.card-action span {
+    display: block;
+    color: #999;
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+}
+
+/*
+    news page
+*/
+span.badge {
+    color: #fff !important;
+    background-color: #4db6ac;
+}

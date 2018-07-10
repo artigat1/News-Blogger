@@ -1,0 +1,43 @@
+﻿@model IEnumerable<PressfordConsulting.News.Models.ArticleViewModel>
+@{
+    const int contentLength = 200;
+}
+
+@if (Model.Any())
+{
+    <div id="masonry-grid" class="row" itemscope itemtype="http://schema.org/ItemList">
+        @foreach (var article in Model)
+        {
+            <div class="col s12 m6 l4">
+                <div class="card-panel" itemprop="itemlistelement" itemscope itemtype="http://schema.org/Article">
+                    @if (article.Image != null)
+                    {
+                        <div class="card-image center">
+                            <a href="@Url.Action("Read", "Article", new {@id = @article.Id})">
+                                <img src="@article.Image.AbsoluteUri" alt="@article.Title" class="responsive-img" itemprop="image">
+                            </a>
+                        </div>
+                    }
+                    <div class="card-content">
+                        <a href="@Url.Action("Read", "Article", new {@id = @article.Id})">
+                            <span class="card-title flow-text teal-text" itemprop="name">@article.Title</span>
+                        </a>
+                        <div itemprop="description">
+                            <p>
+                                @Html.Raw((article.FirstParagraphText.Length > contentLength ?
+                                    article.FirstParagraphText.Substring(0, contentLength) + "..." :
+                                    article.FirstParagraphText))
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <span itemprop="datePublished">Published: @article.PublishDate.ToString("dd MMMM yyyy")</span>
+                        <span itemprop="author" itemscope itemtype="http://schema.org/Person">Author: @article.Author</span>
+                        <span class="badge" itemprop="reviewCount">@article.LikeCount likes</span>
+                        <a href="@Url.Action("Read", "Article", new {@id = @article.Id})" class="orange-text">Read more...</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

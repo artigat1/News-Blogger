@@ -1,0 +1,45 @@
+﻿@model PressfordConsulting.News.Models.NewsViewModel
+@{
+    ViewBag.Title = "Pressford Consulting";
+}
+
+@if (User.IsInRole("Publisher"))
+{
+    <div class="fixed-action-btn">
+        <a class="btn btn-floating btn-large red tooltipped" href="@Url.Action("New", "Article")" id="btnAddArticle" data-position="left" data-delay="50" data-tooltip="Add new article">
+            <i class="large material-icons">add</i>
+        </a>
+    </div>
+}
+
+<div class="row">
+    <div id="popularPanel" class="card-panel row grey lighten-4">
+        <h2 class="header center teal-text text-lighten-2">Most popular</h2>
+        <div class="row center">
+            <h5 class="header col s12 light flow-text">These are the top 10 articles that are trending right now.</h5>
+            <canvas id="popularChart" width="800" height="250"></canvas>
+        </div>
+    </div>
+</div>
+<div id="newsArticles" class="row">
+    <h2 class="header center teal-text text-lighten-2">Latest news</h2>
+    <div class="row center">
+        <h5 class="header col s12 light flow-text">Catch up on the latest news from the Pressford Consulting team.</h5>
+    </div>
+    
+    @if (Model.LatestArticles != null)
+    {
+        Html.Partial("NewsStoryList", Model.LatestArticles);
+    }
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+
+        var data = [@Html.Raw(@Model.ChartData)];
+        $(function () {
+            NewsApp.Editor.init('#btnEdit', '#btnEdit', '', 'div#editor');
+            NewsApp.Charts.chart('popularChart', data);
+        });
+    </script>
+}

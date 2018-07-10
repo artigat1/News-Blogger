@@ -1,0 +1,36 @@
+﻿@model PressfordConsulting.News.Models.LoginViewModel
+@{
+    ViewBag.Title = "Login | Pressford Consulting";
+}
+
+<h1 class="header center teal-text text-lighten-2">Login</h1>
+
+<div class="row">
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "col s12 ", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "red-text" })
+        <div class="row">
+            <div class="input-field col s12">
+                @Html.TextBoxFor(m => m.Email, new { @class = "validate", @type = "email" })
+                @Html.LabelFor(m => m.Email, new { @for = "email" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "red-text" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                @Html.TextBoxFor(m => m.Password, new { @class = "validate", @type = "password" })
+                @Html.LabelFor(m => m.Password, new { @for = "password" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "red-text" })
+            </div>
+        </div>
+        <div clss="row">
+            <button class="btn waves-effect waves-light" type="submit" name="action">
+                Submit
+            </button>
+        </div>
+        <p>
+            @Html.ActionLink("Register as a new user", "Register")
+        </p>
+    }
+</div>

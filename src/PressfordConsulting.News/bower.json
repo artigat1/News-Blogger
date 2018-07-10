@@ -1,0 +1,26 @@
+{
+  "name": "PressfordConsulting.News",
+  "version": "0.0.1",
+  "homepage": "https://github.com/artigat1/PressfordConsultingNews",
+  "authors": [
+    "Steve Doggett <me@stevedoggett.com>"
+  ],
+  "description": "Pressford Consulting News App",
+  "main": "https://pressfordconsultingnews.azurewebsites.net/",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "materialize": "~0.97.0",
+    "jquery-validation": "~1.14.0",
+    "jquery-validation-unobtrusive": "~3.2.2",
+    "froala": "~1.2.8",
+    "chartjs": "~1.0.2",
+    "imagesloaded": "~3.1.8"
+  }
+}

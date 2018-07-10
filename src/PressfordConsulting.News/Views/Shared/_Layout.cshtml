@@ -1,0 +1,66 @@
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="Test page to try out some new concepts." />
+
+    <link rel="icon" type="image/x-icon" href="/Content/images/favicon.ico">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- CSS  -->
+    <link href="~/Content/dist/css/app.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+<body>
+    <header>
+        <nav class="white" role="navigation">
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="/" class="brand-logo">
+                    <img src="http://dummyimage.com/200x50/4db6ac/333.png&text=Pressford+Logo" alt="Logo for Pressford Consulting" />
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    @Html.Partial("Navigation")
+                </ul>
+                @if (Request.IsAuthenticated)
+                {
+                    <span class="right hide-on-med-and-down teal-text">Hello @User.Identity.GetUserName()!</span>
+                }
+
+                <div id="nav-mobile" class="side-nav">
+                    @if (Request.IsAuthenticated)
+                    {
+                        <div class="center teal-text">Hello @User.Identity.GetUserName()!</div>
+                        <hr />
+                    }
+                    <ul>
+                        @Html.Partial("Navigation")
+                    </ul>
+                </div>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="section no-pad-bot">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </main>
+
+    <footer class="page-footer teal"></footer>
+
+    <!--  Scripts-->
+    <script src="~/Content/dist/js/jquery-bundle.min.js" type="text/javascript"></script>
+    <script src="~/Content/dist/js/materialize-bundle.min.js" type="text/javascript"></script>
+    <script src="~/Content/dist/js/chartjs-bundle.min.js" type="text/javascript"></script>
+    <script src="~/Content/dist/js/site-bundle.min.js" type="text/javascript"></script>
+    @RenderSection("Scripts", false)
+
+</body>
+
+</html>

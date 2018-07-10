@@ -1,5 +1,5 @@
-# Pressford Consulting News
-Deliver news stories to all employees.
+# News Blogger
+Deliver news stories to all employees in a fake company. Just wanting to play around with authentication and other technologies within .Net.
 
 Deployed to https://pressfordconsultingnews.azurewebsites.net/
 
@@ -9,7 +9,7 @@ I've setup a couple of dummy logins:
 - Publisher login: publisher@pressford.com / publisher
 - Employee login: employee@pressford.com / password
 
-You can register your own employess enabled user. The login functionality is very basic, using Microsoft Identity.
+You can register your own enabled user. The login functionality is very basic, using Microsoft Identity.
 
 #### Setup
 You will need Node installed
